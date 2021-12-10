@@ -10,8 +10,12 @@ WORKDIR /app
 COPY pan-sandbox-backups.sh ./
 
 # Collect the components we need for this image
-RUN apt-get update
-RUN apt-get install -y curl
+RUN apt-get update && \
+     apt-get install -y \
+        dnsutils \
+        libzip-dev \
+        libsodium-dev \
+        git
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
