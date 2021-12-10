@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Use Pantheon's PHP CI image.
-FROM quay.io/pantheon-public/php-ci:6.x
+FROM quay.io/pantheon-public/php-ci:4.x
 
 # Create and change to the app directory.
 WORKDIR /app
