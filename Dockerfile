@@ -20,8 +20,7 @@ RUN go mod download
 COPY . ./
 
 # Build the binary.
-RUN ["chmod", "+rwx", "go server"]
-RUN go build -v -o server
+RUN go build -v -o /app/server
 
 # Run the web service on container startup.
 CMD ["/app/server"]
