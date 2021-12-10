@@ -13,8 +13,8 @@ COPY pan-sandbox-backups.sh ./
 RUN apt-get update
 RUN apt-get install -y jq curl rsync
 
-# Make sure we are on the latest version of Composer
-RUN composer selfupdate --1
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Terminus
 RUN mkdir -p /usr/local/share/terminus
