@@ -1,0 +1,18 @@
+{
+    "name": "gcloud-pantheon-backups",
+    "description": "Pantheon backups as a Google Cloud Run service",
+    "version": "1.0.0",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "engines": {
+        "node": ">= 14.0.0"
+    },
+    "author": "Sarah German",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}

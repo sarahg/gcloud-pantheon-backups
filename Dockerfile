@@ -6,8 +6,12 @@ FROM quay.io/pantheon-public/build-tools-ci:6.x
 # Create and change to the app directory.
 WORKDIR /app
 
-# Copy local code to the container image.
-COPY pan-sandbox-backups.sh ./
+# Install node dependencies.
+COPY ["package.json", "package-lock.json*", "./"]
+RUN npm install --production
 
-# Run the backup service on container startup.
-CMD ["./pan-sandbox-backups.sh"]
+# Add our source code into the image.
+COPY . .
+
+# Start the node server.
+CMD [ "node", "index.js" ]
