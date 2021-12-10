@@ -2,7 +2,7 @@
 
 set -eou pipefail
 
-terminus auth:login --machine_token=${TERMINUS_TOKEN}
+terminus auth:login --machine-token=${TERMINUS_TOKEN}
 
 # Instead of an env var for $SITES, maybe pull a site list that filters by a tag?
 # Or just cover all unfrozen sandboxes?
