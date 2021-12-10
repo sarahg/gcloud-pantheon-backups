@@ -4,7 +4,7 @@
 FROM quay.io/pantheon-public/build-tools-ci:6.x
 
 # Pull in Go for our webserver.
-COPY --from=golang:1.14-buster AS builder /usr/local/go/ /usr/local/go/
+COPY --from=golang:1.14-buster /usr/local/go/ /usr/local/go/
 ENV PATH="/usr/local/go/bin:${PATH}"
 
 # Create and change to the app directory.
@@ -22,8 +22,5 @@ COPY . ./
 # Build the binary.
 RUN go build -v -o server
 
-# Copy the binary to the production image from the builder stage.
-COPY --from=builder /app/server /server
-
 # Run the web service on container startup.
-CMD ["/server"]
+CMD ["/app/server"]
