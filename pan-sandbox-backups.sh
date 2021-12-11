@@ -2,16 +2,12 @@
 
 set -eou pipefail
 
-terminus auth:login --machine-token=${TERMINUS_TOKEN}
+terminus auth:login --machine-token="${TERMINUS_TOKEN}"
 
-# Instead of an env var for $SITES, maybe pull a site list that filters by a tag?
-# Or just cover all unfrozen sandboxes?
-
-for site in ${SITES//,/ }
+for site in $(terminus org:site:list "${PANTHEON_ORG_ID}" --tag=backups-bot --field=Name --format=list)
 do
     echo "Creating backups for ${site}..."
-    ENVS="$(terminus env:list "$site" --filter='initialized=1' --field=ID)"
-    for ENV in ${ENVS}
+    for ENV in $(terminus env:list "$site" --filter='initialized=1' --field=ID)
     do
       terminus -n backup:create "${site}"."${ENV}"
     done
