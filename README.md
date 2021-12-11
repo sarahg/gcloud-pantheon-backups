@@ -9,6 +9,6 @@ When paired with Google Cloud Scheduler, this is useful for automating backups f
 - [Build and deploy a Shell service](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/shell)
 - [Setting request timeout](https://cloud.google.com/run/docs/configuring/request-timeout#command-line)
     - Backups can be slow; if you have multiple sites, you'll probably need this higher than the default value of 5min.
-- [Environment variables](https://cloud.google.com/run/docs/configuring/environment-variables)
+- [Environment variables](https://cloud.google.com/run/docs/configuring/environment-variables) or [Secrets](https://cloud.google.com/secret-manager/docs).
     - This script requires `$TERMINUS_TOKEN` and `$PANTHEON_ORG_ID`.
 - [Running services on a schedule](https://cloud.google.com/run/docs/triggering/using-scheduler)
