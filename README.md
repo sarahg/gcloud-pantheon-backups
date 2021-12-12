@@ -1,6 +1,6 @@
 # GCloud Pantheon Backups
 
-This script runs backups on each environment for Pantheon sites tagged `backups-bot`.
+This shell service runs a backup on each environment for sites in your Pantheon org tagged `backups-bot`.
 
 When paired with Google Cloud Scheduler, this is useful for automating backups for sites that aren't on paid plans yet.
 
